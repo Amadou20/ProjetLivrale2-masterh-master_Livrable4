@@ -74,6 +74,12 @@ public class serviceList extends AppCompatActivity {
                         j.putExtra("EMAIL",user.getEmail() );
                         startActivity(j);
                     }
+                    else if(insert = true && db.fournisseurhasservice(getIntent().getStringExtra("EMAIL"))==true){
+                        Intent a = new Intent(serviceList.this, ServiceEdit.class);
+                        Toast.makeText(getApplicationContext(), "service saved: successful : Avaibility kept", Toast.LENGTH_SHORT).show();
+                        a.putExtra("EMAIL",user.getEmail() );
+                        startActivity(a);
+                    }
                     else {
                         Toast.makeText(getApplicationContext(), "service saved: fail", Toast.LENGTH_SHORT).show();
                     }
